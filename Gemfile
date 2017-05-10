@@ -34,6 +34,8 @@ gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'figaro'
+
 # Front End
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
