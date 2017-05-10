@@ -1,27 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cocktails</h1>
+<h1 class="text-center">Cocktails</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <% @cocktails.each do |cocktail| %>
+  <div class="col-xs-12 col-sm-4 padded">
+    <div class="card" style="background-color: #1F497D">
+      <div class="card-category">
+        <%= link_to 'Edit', edit_cocktail_path(cocktail) %>
+      </div>
+      <div class="card-description">
+        <h2><%= cocktail.name %></h2>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Cocktail', new_cocktail_path %>
+<%= link_to 'New Cocktail', new_cocktail_path, class: "btn btn-primary" %>
