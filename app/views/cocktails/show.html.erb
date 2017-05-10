@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
-<p>
-  <strong>Recipe:</strong>
-  <% @doses.each do |dose| %>
-    <ul>
-      <li> <%= dose.ingredient.name %>  <%= dose.description %> ||
-       <%= link_to "Edit", edit_cocktail_dose_path(@cocktail, dose) %>
-       <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }  %> </li>
-    </ul>
-  <% end %>
-</p>
+<h1 class="text-center"><%= @cocktail.name %></h1>
 
+<div class="row padded">
+  <div class="col-sm-6">
+
+    <%= cl_image_tag @cocktail.photo, height: 300, crop: :fill %>
+  </div>
+
+  <div class="col-sm-6">
+    <h3>Recipe</h3>
+    <ol>
+      <% @doses.each do |dose| %>
+        <li> <%= dose.ingredient.name %>  <%= dose.description %> ||
+         <%= link_to "Edit", edit_cocktail_dose_path(@cocktail, dose) %>
+         <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }  %> </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %> |
 <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail.id) %>

@@ -35,6 +35,8 @@ gem 'turbolinks', '~> 5'
 # gem 'capistrano-rails', group: :development
 
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 # Front End
 gem 'bootstrap-sass'
